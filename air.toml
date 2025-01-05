@@ -1,0 +1,48 @@
+# Config file for Air live reloading
+
+# Root directory of the project
+root = "."
+
+# Name of the Go binary file to generate
+tmp_dir = "tmp"
+
+# Command to build the project
+cmd = "go build -o ./tmp/main ."
+
+# Command to run the project binary
+bin = "./tmp/main"
+
+# Patterns to watch for changes (default includes all Go files and configuration files)
+include = [
+    "**/*.go",          # Watch all Go files
+    "**/*.tmpl",        # Watch template files
+    "**/*.html",        # Watch HTML files
+    "**/*.css",         # Watch CSS files
+    "**/*.js",          # Watch JavaScript files
+    "**/*.yaml",        # Watch YAML configuration files
+    "**/*.json"         # Watch JSON configuration files
+]
+
+# Patterns to exclude from watching
+exclude = [
+    "tmp/**",           # Exclude temporary build directory
+    "vendor/**",        # Exclude vendor directory
+    "node_modules/**",  # Exclude node_modules (if applicable)
+    ".git/**",          # Exclude Git files
+    ".idea/**"          # Exclude IDE configurations
+]
+
+# Logging configuration
+log_level = "info"  # Log level: debug, info, warn, error
+log_time = true     # Include timestamps in logs
+
+# Delay before restarting the application after changes (in milliseconds)
+delay = 1000
+
+# Kill signal to send to the application on restart
+kill_signal = "SIGTERM"
+
+# Environment variables for the application
+[env]
+  PORT = "8080"
+  ENV = "development"
